@@ -30,6 +30,7 @@ export default function Home() {
       addItem();
     }
   }
+
   function handleOnChange(e: any) {
     setCurrent(e.target.value);
   }
@@ -38,13 +39,14 @@ export default function Home() {
     <>
       <main className="bg-goldenbrown flex gap-y-2 min-h-screen flex-col justify-items-start p-24">
         <input
-          className="bg-transparent text-caputmortuum outline-none text-9xl border-b-4 border-caputmortuum"
+          className="bg-transparent text-caputmortuum outline-none text-9xl border-b-4 border-caputmortuum w-1/2"
           type="text"
           onChange={handleOnChange}
           onKeyDown={handleInputKeyDown}
         ></input>
         <button onClick={addItem}>Add Item</button>
-        <div className="flex flex-row flex-wrap content-start grow p-4 rounded-md border-4 border-caputmortuum w-2/3 max-w-1/2 min-h-4">
+        <button onClick={() => fetch(new Request("/api/drinks", { method: "POST", body: JSON.stringify({ ingredients: items })}))}>Search</button>
+        <div className="flex flex-row flex-wrap content-start grow p-4 rounded-md border-4 border-caputmortuum w-1/3 max-w-1/2 min-h-4">
           {generateButtons()}
         </div>
       </main>

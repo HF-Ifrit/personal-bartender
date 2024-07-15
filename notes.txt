@@ -1,0 +1,5 @@
+Theme:
+
+Golden brown - 168, 114, 36
+Caput mortuum - 88, 31, 24
+Flax - 245, 221, 144
